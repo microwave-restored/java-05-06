@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [27/May/2023:17:19:26 +0300] "GET /Lab06/ HTTP/1.1" 200 85 http-bio-9090-exec-1 410
+0:0:0:0:0:0:0:1 - - [27/May/2023:17:19:29 +0300] "GET /Lab06/main HTTP/1.1" 200 574 http-bio-9090-exec-3 37
+0:0:0:0:0:0:0:1 - - [27/May/2023:17:19:36 +0300] "GET /Lab06/students?lastName=Dima&firstName=&middleName=&programme=&mark= HTTP/1.1" 200 162 http-bio-9090-exec-4 109
+0:0:0:0:0:0:0:1 - - [27/May/2023:17:19:42 +0300] "GET /Lab06/students?lastName=Max&firstName=1&middleName=1&programme=1&mark=1 HTTP/1.1" 200 172 http-bio-9090-exec-5 50
+0:0:0:0:0:0:0:1 - - [27/May/2023:17:20:03 +0300] "GET /Lab06/students?lastName=George&firstName=1&middleName=1&programme=1&mark=4 HTTP/1.1" 200 165 http-bio-9090-exec-6 32
