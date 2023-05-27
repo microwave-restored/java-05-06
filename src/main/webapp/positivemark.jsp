@@ -5,6 +5,5 @@
 </head>
 <body>
     Нельзя пересдавать, если оценка выше двойки.
-    Mark is more then two.
 </body>
 </html>

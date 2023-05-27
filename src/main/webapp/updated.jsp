@@ -5,6 +5,5 @@
 </head>
 <body>
     Данные обновлены, новая оценка выставлена!
-    Updated successfully!
 </body>
 </html>

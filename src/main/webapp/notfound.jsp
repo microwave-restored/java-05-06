@@ -5,6 +5,5 @@
 </head>
 <body>
     Такого студента не существует!
-    This student does not exists!
 </body>
 </html>
