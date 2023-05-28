@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="org.dstu.db.DbWorker" %>
 <html>
 <head>
     <title>Student</title>
@@ -12,5 +13,7 @@
         Оценка: <input type="number" value="" name="mark"> <br>
         <button type="submit">Добавить</button> <br>
     </form>
+    <h1>Список студентов</h1>
+    <%= DbWorker.exportData() %>
 </body>
 </html>

@@ -4,10 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DbWorker {
     public static void doQuery(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,5 +44,36 @@ public class DbWorker {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public static String exportData() {
+        Connection conn = DbConnection.getConnection();
+        StringBuilder htmlTable = new StringBuilder();
+        htmlTable.append("<table>");
+        htmlTable.append("<tr><th>Имя</th><th>Фамилия</th><th>Оценка</th></tr>");
+        if (conn != null) {
+            try {
+                String selectSql = "SELECT * FROM students";
+                PreparedStatement selectStatement = conn.prepareStatement(selectSql);
+                ResultSet resultSet = selectStatement.executeQuery();
+                while (resultSet.next()) {
+                    String firstName = resultSet.getString("first_name");
+                    String lastName = resultSet.getString("last_name");
+                    int mark = resultSet.getInt("mark");
+                    htmlTable.append("<tr>");
+                    htmlTable.append("<td>").append(firstName).append("</td>");
+                    htmlTable.append("<td>").append(lastName).append("</td>");
+                    htmlTable.append("<td>").append(mark).append("</td>");
+                    htmlTable.append("</tr>");
+                }
+                htmlTable.append("</table>");
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                htmlTable = new StringBuilder("Произошла ошибка при выполнении операции");
+            }
+        }
+        htmlTable.append("</table>");
+        return htmlTable.toString();
     }
 }
