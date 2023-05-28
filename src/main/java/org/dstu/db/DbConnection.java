@@ -21,14 +21,4 @@ public class DbConnection {
         }
         return connection;
     }
-
-    public static Connection getNewConnection() {
-        try {
-            Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection(DB_URL, login, password);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
